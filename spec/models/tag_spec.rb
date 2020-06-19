@@ -4,8 +4,17 @@ require 'rails_helper'
 
 RSpec.describe Tag, type: :model do
   context 'creation' do
-    let(:user1) { User.create(name: 'user1', email: 'user1@mail.com', password: '123456') }
-    let(:article) { Article.create(title: 'title...', body: 'article..', image: 'default', author_id: user1.id) }
+    let(:user1) do
+      User.create(name: 'user1',
+                  email: 'user1@mail.com',
+                  password: '123456')
+    end
+    let(:article) do
+      Article.create(title: 'title...',
+                     body: 'article..',
+                     image: 'default',
+                     author_id: user1.id)
+    end
     let(:category) { Category.create({ name: 'Category1', priority: 1 }) }
 
     it 'can be created with the right arguments' do

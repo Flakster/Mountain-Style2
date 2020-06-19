@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'articles#index'
   resources :categories
-  resources :votes, only: [:create, :destroy]
+  resources :votes, only: %i[create destroy]
   resources :articles do
     resources :votes
   end

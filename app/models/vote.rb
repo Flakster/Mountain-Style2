@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# class Vote
 class Vote < ApplicationRecord
   validates :user_id, uniqueness: { scope: :article_id }
 

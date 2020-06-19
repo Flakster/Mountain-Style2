@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# class VotesController
 class VotesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_article
@@ -14,11 +15,15 @@ class VotesController < ApplicationController
     redirect_to article_path(params[:article_id])
   end
 
-  def destroy
-    vote = Vote.find_by(id: params[:id], user: current_user, article_id: params[:article_id])
+  def destroy # rubocop:disable Metrics/MethodLength
+    vote = Vote.find_by(id:
+                        params[:id],
+                        user: current_user,
+                        article_id: params[:article_id])
     if vote
       vote.destroy
-      redirect_to article_path(params[:article_id]), notice: 'Your vote was deleted.'
+      redirect_to article_path(params[:article_id]),
+                  notice: 'Your vote was deleted.'
     else
       redirect_to root_path
     end

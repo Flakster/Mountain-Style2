@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# module ArticlesHelpler
 module ArticlesHelper
   def main_properties(article)
     main_hash = if article.nil?
