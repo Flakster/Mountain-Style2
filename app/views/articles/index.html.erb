@@ -1,33 +1,21 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Articles</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Image</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.body %></td>
-        <td><%= article.image %></td>
-        <td><%= article.user_id %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Article', new_article_path %>
+<div class="popular-article" style="background-image: linear-gradient(to top,
+                    rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2) 50%),
+                    url(<%= image_path "#{main_properties(@popular_article)[:image]}"%>);">
+  <h1 class="popular-title"><%= link_to main_properties(@popular_article)[:title], @popular_article%></h1>
+  <p class="popular-body"><%= main_properties(@popular_article)[:body].truncate(200)%></p>
+</div> 
+<div class="category-container">
+  <% @categories.each do |category| %>
+    <article class='category-item' style="background-image: linear-gradient(to top,
+                    rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%),
+                    url(<%= image_path "#{article_properties(category)[:image]}"%>);">
+      <span class="lower-link category-link">
+        <%= link_to category.name, category %>
+      </span>
+      <span class="lower-link article-link">
+        <%= link_to article_properties(category)[:title], article_properties(category)[:link] %>
+      </span>
+    </article>
+  <% end %>
+</div>

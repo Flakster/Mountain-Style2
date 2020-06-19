@@ -1,3 +1,93 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.article-form-title, .lower-links{
+  text-align: center;
+  margin: 20px;
+}
+.article-container {
+  position: relative;
+  display: flex;
+  top: 20px;
+  width: 98%;
+  margin: auto;
+
+  .text-content{
+    margin-right: 20px;
+    flex: 1;
+
+    .article-info {
+      color: gray;
+      font-style: italic;
+    }
+    .body-content {
+      position: relative;
+      text-align: justify;
+      margin: 30px 0;
+    }
+  }
+
+  .image-content {
+    position: relative;
+    flex: 1;
+
+    .article-image {
+      width: 100%;
+      height: 60vh;
+    }
+  }
+  
+}
+.popular-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end ;
+  background: center/cover no-repeat;
+  font-size: 15px;
+  font-weight: 800;
+  height: 59vh;
+  
+  .popular-title {
+    font-size: large;
+    padding: 0 10px;
+
+    a {
+      color: #FD6000;
+    }
+  }
+  
+  .popular-body {
+    color: white;
+    padding: 10px;
+  }
+}
+.category-container {
+  display: flex;
+  justify-content: space-around;
+  
+  .category-item {
+    position: relative;
+    flex: 1;
+    background: center/cover no-repeat;
+    height: 32.5vh;
+  }
+
+  .lower-link {
+    position: absolute;
+    padding: 3px 5px;
+    left: 10px;
+  }
+
+  .category-link {
+    top: 10px;
+    border-bottom: 3px solid #ffff01;
+  }
+
+  .article-link {
+    bottom: 20px;
+  }
+  a {
+    color : white;
+    font-weight: 800;
+  }
+}
