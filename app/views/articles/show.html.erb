@@ -1,24 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @article.image %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @article.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<main class="article-container">
+  <div class="text-content">
+    <h1 class="article-title" >
+      <%= @article.title %>
+    </h1>
+    <span class="article-info">
+      <%= @article.author.name %> - <%= @article.created_at.strftime("%B %-d, %Y")%>
+    </span>
+    <article class= "body-content">
+      <%= @article.body %>
+    </article>
+    <% if owner?(@article.author_id)%>
+      <%= link_to 'Edit', edit_article_path(@article) %> |
+    <% end %>
+    <% if @vote.nil? %>
+      <%= link_to 'Vote this article', article_votes_path( @article ), method: :post %>
+    <% else %>
+      <%= link_to 'Delete your vote', article_vote_path( id: @vote.id, article_id: @article.id  ), method: :delete %>
+    <% end %>
+  </div>
+  <div class="image-content">
+    <img class="article-image" src="<%= image_path @article.image %>" alt="article image" >
+  </div>
+</main>
+<footer class="footer-container">
+  <%= render :partial => 'categories/footer' %>
+</footer>

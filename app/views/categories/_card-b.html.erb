@@ -1,0 +1,17 @@
+<div class="article-item article-image" style="background-image: url(<%= image_path article.image%>)">
+</div>
+
+<div class="article-item article-text">
+  <title class="category-name-box text-item">
+    <%= @category.name %>
+  </title>
+  <title class="article-title-box text-item">
+    <%= article.title %>
+  </title>
+  <div class="body-box text-item">
+    <%= article.body.truncate(300, separator: ' ') %>
+  </div>
+  <div class="read-more-box text-item">
+    <%= link_to 'Read More', "/articles/#{article.id}" %>
+  </div>
+</div>

@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MountainStyle2</title>
+    <title>MountainBlog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
 
   <body>
+    <nav class="nav">
+    <div class="home">
+      <%= link_to root_path do%>
+        <div class = "logo-text" >MounTAinsTyle</div>
+      <% end %>
+      <%= link_to root_path do%>
+        <%= image_tag "mountains", alt: "Mountain Style Logo" %>
+      <% end %>
+    </div>
+    <div class="menu">
+      <% if user_signed_in? %>
+          <%= link_to current_user.name, edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to 'New article', new_article_path, :class => 'navbar-link' %>
+        </div>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <div class="menu-item">
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+        </div>
+        <div class="menu-item">
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        </div>
+      <% end %>
+    </div>
+  </nav>
   	<% if notice %>
-		<p class="alert alert-success"><%= notice %></p>
-	    <% end %>
+		  <p class="alert alert-success"><%= notice %></p>
+	  <% end %>
 	  <% if alert %>
 		  <p class="alert alert-danger"><%= alert %></p>
 	  <% end %>

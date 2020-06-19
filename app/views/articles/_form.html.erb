@@ -23,12 +23,16 @@
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.text_field :image %>
+    <%= form.select :image, [['Log Cabin', 'logcabin'], ['Landscape', 'landscape'],
+                             ['Pool', 'pool'], ['Minimalist', 'minimalist'],
+                             ['Edible garden', 'ediblegarden'], ['Mountain','mountain']] %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.fields_for :tags do |builder| %>
+      <%= builder.label :category %>
+      <%= builder.collection_select :category_id, Category.all, :id, :name %>
+    <% end %>
   </div>
 
   <div class="actions">

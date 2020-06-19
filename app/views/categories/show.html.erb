@@ -1,14 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
-
-<p>
-  <strong>Priority:</strong>
-  <%= @category.priority %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<main class="category-main-container">
+  <div class="articles-container">
+  <% @category.articles.order(created_at: :desc).each_with_index do |article, index|%>
+    <div class="single-article">
+      <% if left_image?(index) %>
+        <%= render 'card-b', article: article, category: @category%>
+      <% else %>
+        <%= render 'card-a', article: article, category: @category%>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+</main>
+<footer class="footer-container">
+  <%= render 'footer'%>
+</footer>
