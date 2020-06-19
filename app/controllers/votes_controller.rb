@@ -15,7 +15,7 @@ class VotesController < ApplicationController
     redirect_to article_path(params[:article_id])
   end
 
-  def destroy # rubocop:disable Metrics/MethodLength
+  def destroy
     vote = Vote.find_by(id:
                         params[:id],
                         user: current_user,

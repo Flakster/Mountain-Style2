@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Vote, type: :model do # rubocop:disable Metrics/BlockLength
+RSpec.describe Vote, type: :model do
   context 'creation' do
     let(:user) do
       User.create(name: 'user1',

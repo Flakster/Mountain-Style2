@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Article, type: :model do # rubocop:disable Metrics/BlockLength
+RSpec.describe Article, type: :model do
   context 'creation' do
     let(:user1) do
       User.create(name: 'user1',
