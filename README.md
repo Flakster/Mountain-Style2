@@ -81,7 +81,7 @@ bundle install
 Give a ⭐️ if you like this project!
  
 ## License
-This project is [MIT](https://github.com/Flakster/Mountain-Style/blob/blog/LICENSE) Licensed
+This project is [MIT](https://github.com/Flakster/Mountain-Style2/blob/develop/LICENSE) Licensed
 
 ## Author
 👤 Carlos Santamaría
