@@ -1,0 +1,16 @@
+<main class="category-main-container">
+  <div class="articles-container">
+  <% @category.articles.order(created_at: :desc).each_with_index do |article, index|%>
+    <div class="single-article">
+      <% if left_image?(index) %>
+        <%= render 'card-b', article: article, category: @category%>
+      <% else %>
+        <%= render 'card-a', article: article, category: @category%>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+</main>
+<footer class="footer-container">
+  <%= render 'footer'%>
+</footer>

@@ -1,0 +1,41 @@
+<%= form_with(model: article, local: true) do |form| %>
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+        <% article.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.select :image, [['Log Cabin', 'logcabin'], ['Landscape', 'landscape'],
+                             ['Pool', 'pool'], ['Minimalist', 'minimalist'],
+                             ['Edible garden', 'ediblegarden'], ['Mountain','mountain']] %>
+  </div>
+
+  <div class="field">
+    <%= form.fields_for :tags do |builder| %>
+      <%= builder.label :category %>
+      <%= builder.collection_select :category_id, Category.all, :id, :name %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
