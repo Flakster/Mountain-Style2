@@ -67,7 +67,7 @@ bundle install
 ```
 11. Open your web browser and go to **localhost:3000**
 
-## See a live demo [Here](https://mountain-blog2.herokuapp.com/)
+## See a live demo [Here](https://mountain-style.herokuapp.com/)
 
 ## Watch a video with the presentation of the project [Here](https://www.loom.com/share/2e56e80772c34532a437fae034b712c3)
 
@@ -81,7 +81,7 @@ bundle install
 Give a ⭐️ if you like this project!
  
 ## License
-This project is [MIT](https://github.com/Flakster/Mountain-Style/blob/blog/LICENSE) Licensed
+This project is [MIT](https://github.com/Flakster/Mountain-Style2/blob/develop/LICENSE) Licensed
 
 ## Author
 👤 Carlos Santamaría
