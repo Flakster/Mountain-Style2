@@ -71,6 +71,11 @@ bundle install
 
 ## Watch a video with the presentation of the project [Here](https://www.loom.com/share/2e56e80772c34532a437fae034b712c3)
 
+## Potential future features
+
+ * Upload custom images for the articles
+ * Omniauth autentication with github, google and facebook
+ * Ajax updating for voting notification
 
 ## Acknowledgments:
 
